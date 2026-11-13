@@ -1,0 +1,29 @@
+meta {
+  name: 05 Crear autor
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/api/autores
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "nombre": "Frank Herbert"
+  }
+}
+
+assert {
+  res.status: eq 201
+}
+
+script:post-response {
+  bru.setVar("autorId", res.body.id);
+}

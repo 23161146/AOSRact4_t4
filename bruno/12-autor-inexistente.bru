@@ -1,0 +1,27 @@
+meta {
+  name: 12 Autor inexistente (422)
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/api/libros
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "titulo": "Dune",
+    "anioPublicacion": 1965,
+    "autorId": 99999
+  }
+}
+
+assert {
+  res.status: eq 422
+}

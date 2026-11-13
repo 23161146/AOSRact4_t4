@@ -1,0 +1,19 @@
+meta {
+  name: 04 Libros SIN token (401)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/libros
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 401
+}
+
+docs {
+  Sin token la API rechaza la peticion con 401.
+}

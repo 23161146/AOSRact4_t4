@@ -1,0 +1,19 @@
+meta {
+  name: 14 Eliminar libro (204)
+  type: http
+  seq: 14
+}
+
+delete {
+  url: {{baseUrl}}/api/libros/{{libroId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+assert {
+  res.status: eq 204
+}

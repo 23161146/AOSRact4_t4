@@ -1,0 +1,25 @@
+meta {
+  name: 10 Actualizar PATCH (200)
+  type: http
+  seq: 10
+}
+
+patch {
+  url: {{baseUrl}}/api/libros/{{libroId}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "titulo": "Children of Dune"
+  }
+}
+
+assert {
+  res.status: eq 200
+}

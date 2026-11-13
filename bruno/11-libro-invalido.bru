@@ -1,0 +1,26 @@
+meta {
+  name: 11 Libro invalido (400)
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/api/libros
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "titulo": "",
+    "autorId": {{autorId}}
+  }
+}
+
+assert {
+  res.status: eq 400
+}

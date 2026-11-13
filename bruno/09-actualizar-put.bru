@@ -1,0 +1,27 @@
+meta {
+  name: 09 Actualizar PUT (200)
+  type: http
+  seq: 9
+}
+
+put {
+  url: {{baseUrl}}/api/libros/{{libroId}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "titulo": "Dune Messiah",
+    "anioPublicacion": 1969,
+    "autorId": {{autorId}}
+  }
+}
+
+assert {
+  res.status: eq 200
+}

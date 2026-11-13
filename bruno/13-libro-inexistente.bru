@@ -1,0 +1,19 @@
+meta {
+  name: 13 Libro inexistente (404)
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{baseUrl}}/api/libros/99999
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+assert {
+  res.status: eq 404
+}
